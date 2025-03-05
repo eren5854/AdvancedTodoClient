@@ -1,1 +1,128 @@
-<p>login works!</p>
+<div class="bg-zinc-950 text-white min-h-screen">
+    <div class="container mx-auto px-4 py-8 max-w-2xl">
+        <!-- Profile Section -->
+        <div class="grid md:grid-cols-1 gap-2">
+            <div class="md:col-span-1">
+
+                <div class="bg-zinc-800/45 rounded-xl p-6 shadow-lg border border-purple-500/20">
+                    <div *ngIf="!showRegister"  class="flex flex-col items-center">
+                        <div
+                            class="w-32 h-32 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mb-4">
+                            <!-- <img src="https://avatarfiles.alphacoders.com/347/347356.jpg"
+                                class="rounded-full bg-cover border-2 border-purple-400" /> -->
+                            <img src="/assets/img/to-do-list.png"
+                                class="rounded-full bg-cover border-2 border-purple-400" />
+                        </div>
+                        <h2 class="text-2xl font-bold mb-2">
+                            Login to, <span id="playerName" class="text-purple-400">Todo List</span>
+                        </h2>
+
+                        <form #loginForm="ngForm" (ngSubmit)="login(loginForm)"
+                            style="width: 100%;">
+
+                            <div class="mb-6">
+                                <label for="userName"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">User
+                                    Name</label>
+                                <input [(ngModel)]="loginModel.userName" type="text" id="userName" name="userName"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="john.doe@company.com" required />
+                            </div>
+                            <div class="mb-6">
+                                <label for="password"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                                <input [(ngModel)]="loginModel.password" type="password" id="password" name="password"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="•••••••••" required />
+                            </div>
+                            <div class="flex items-start mb-6">
+                                <label for="remember"
+                                    class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Don't have an
+                                    account?
+                                    <a (click)="showRegisterPage()"
+                                        class="text-blue-600 hover:underline dark:text-blue-500">Register
+                                        now</a>.</label>
+                            </div>
+                            <button type="submit"
+                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+                        </form>
+                    </div>
+
+                    <div *ngIf="showRegister"  class="flex flex-col items-center">
+                        <div
+                            class="w-32 h-32 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mb-4">
+                            <!-- <img src="https://avatarfiles.alphacoders.com/347/347356.jpg"
+                                class="rounded-full bg-cover border-2 border-purple-400" /> -->
+                            <img src="{{imageUrl}}Avatars/{{registerModel.avatar}}"
+                                class="rounded-full bg-cover border-2 border-purple-400" />
+                        </div>
+                        <h2 class="text-2xl font-bold mb-2">
+                            Register to, <span id="playerName" class="text-purple-400">Todo List</span>
+                        </h2>
+
+                        <form #registerForm="ngForm" (ngSubmit)="register(registerForm)"
+                            style="width: 100%;">
+
+                            <div class="mb-6">
+                                <label for="userName"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">User
+                                    Name</label>
+                                <input [(ngModel)]="registerModel.userName" type="text" id="userName" name="userName"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="john.doe@company.com" required />
+                            </div>
+                            <div class="mb-6">
+                                <label for="password"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                                <input [(ngModel)]="registerModel.password" type="password" id="password" name="password"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="•••••••••" required />
+                            </div>
+                            <!-- <div class="mb-6">
+                                <label for="confirm_password"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm
+                                    password</label>
+                                <input type="password" id="confirm_password"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="•••••••••" required />
+                            </div> -->
+
+                            <div class="mb-6">
+                                <label for="confirm_password"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Choose
+                                    Avatar
+                                </label>
+                                <div class="flex flex-wrap gap-2">
+                                    <div *ngFor="let avatar of avatars"
+                                        class="w-32 h-32 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mb-4">
+                                        <img (click)="selectAvatar(avatar)" src="{{imageUrl}}Avatars/{{avatar}}"
+                                            class="rounded-full bg-cover border-2 border-purple-400" />
+                                    </div>
+                                    <!-- <div
+                                        class="w-32 h-32 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mb-4">
+                                        <img src="{{imageUrl}}Avatars/7309683.jpg"
+                                            class="rounded-full bg-cover border-2 border-purple-400" />
+                                    </div>
+                                    <div
+                                        class="w-32 h-32 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mb-4">
+                                        <img src="{{imageUrl}}Avatars/7309703.jpg"
+                                            class="rounded-full bg-cover border-2 border-purple-400" />
+                                    </div> -->
+                                </div>
+                            </div>
+                            <div class="flex items-start mb-6">
+                                <label for="remember"
+                                    class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Do you have an
+                                    account?
+                                    <a (click)="showRegisterPage()"
+                                        class="text-blue-600 hover:underline dark:text-blue-500">Log in now</a>.</label>
+                            </div>
+                            <button type="submit"
+                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
