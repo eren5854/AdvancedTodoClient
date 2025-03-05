@@ -8,13 +8,11 @@ import { SwalService } from './swal.service';
 })
 export class HttpService {
 
-  imageUrl:string = "https://192.168.68.134:45455/";
-  // imageUrl:string = "https://wtapi.erendelibas.xyz/" 
-  // imageUrl:string = "https://worker-tracking.webapi.erendelibas.com/" 
+  // imageUrl:string = "https://192.168.68.134:45455/";
+  imageUrl:string = "https://todo-api.erendelibas.xyz/" 
 
-  url:string = "https://192.168.68.134:45455/api/";
-  // url:string = "https://wtapi.erendelibas.xyz/api/"
-  // url:string = "https://worker-tracking.webapi.erendelibas.com/api/"
+  // url:string = "https://192.168.68.134:45455/api/";
+  url:string = "https://todo-api.erendelibas.xyz/api/"
 
   constructor(
     private http: HttpClient,
