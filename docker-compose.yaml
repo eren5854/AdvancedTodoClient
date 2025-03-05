@@ -1,0 +1,11 @@
+services:
+
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: advanced-todo-client
+    container_name: AdvancedTodoClient
+    ports:
+      - 54065:80
