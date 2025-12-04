@@ -8,4 +8,4 @@ services:
     image: advanced-todo-client
     container_name: AdvancedTodoClient
     ports:
-      - 54065:80
+      - 54015:80
